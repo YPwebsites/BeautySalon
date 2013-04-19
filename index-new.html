@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+<title>Responsive Structure</title>
+<link href="template.css" rel="stylesheet" type="text/css" />
+<script src="gfx/ui.core.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+
+<!-- BEGIN HTML COPY/PASTE -->
+
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script src="gfx/jquery.scroll-follow.js"></script>
+<script src="gfx/jquery.easing.1.3"></script>
+
+<script type="text/javascript">
+
+sfHover = function() {
+var nav = document.getElementById("nav");
+if (nav != null) {
+var sfEls = nav.getElementsByTagName("LI");
+for (var i=0; i<sfEls.length; i++) {
+sfEls[i].onmouseover=function() {
+this.className+=" sfhover";
+}
+sfEls[i].onmouseout=function() {
+this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+}
+}
+}
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+
+</script>
+
+
+
+<!-- scroll to top -->
+
+<script>
+$(document).ready(function(){
+
+	// hide #back-top first
+	$("#back-top").hide();
+	
+	// fade in #back-top
+	$(function () {
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 100) {
+				$('#back-top').fadeIn();
+			} else {
+				$('#back-top').fadeOut();
+			}
+		});
+
+		// scroll body to 0px on click
+		$('#back-top a').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800);
+			return false;
+		});
+	});
+	var childHpx = $('nav#m-menu ul#nav li').css("height");
+	var childH = childHpx.replace("px", "");
+	var childN = $('nav#m-menu ul#nav li').size();
+	var parentH = ((childH*-1)*(childN*1));
+	
+	$('nav#m-men').css("top", parentH + "px");
+});
+function navTab() {
+		var childHpx = $('nav#m-menu ul#nav li').css("height");
+		var childH = childHpx.replace("px", "");
+		var childN = $('nav#m-menu ul#nav li').size();
+		var parentH = ((childH*-1)*(childN*1));
+		if ( $('nav#m-menu').hasClass("active") ) {
+			$('nav#m-menu').css("top", parentH + "px").removeClass("active");
+		} else {
+			$('nav#m-menu').css("top", "0").addClass("active");
+		}
+		return false;
+	}
+</script>
+
+
+
+<!-- scroll to top end -->
+
+
+
+</head>
+
+ 
+<body id="mysite">
+<a onclick="navTab()" id="navTab"><img src="gfx/icon-menu.png" width="30" height="30"></a>  
+
+
+
+
+<div class="skinBg">
+
+<!-- back to top -->
+<p id="back-top">
+		<a href="#top"><span></span>Back to Top</a>
+</p>
+<!-- end back to top -->
+
+
+
+
+
+
+     
+        
+<!-- header -->
+<div id="wrapper-header">
+	<div class="backDropImg"></div>
+    
+    <header id="header" class="sk-container">
+        <div id="logo" class="logoWrap">
+            <a href="#">
+                <img src="gfx/logo.png" />
+            </a>
+            
+        </div><!-- end logo -->
+        
+        
+    
+  		<nav id="menu" class="sixteen columns">
+        	<ul id="nav">
+        		<li class="current first"><a href="#">Home</a>
+                	<ul>
+                    	<li><a href="#">drop 1</a>
+                        	<ul>
+                                <li><a href="#">drop 2</a></li>
+                                <li><a href="#">drop 2</a></li>
+                                <li><a href="#">drop 2</a></li>
+                                <li><a href="#">drop 2</a></li>
+                                <li><a href="#">drop 2</a></li>
+                            </ul>
+                        
+                        </li>
+                        <li><a href="#">drop 1</a></li>
+                        <li><a href="#">drop 1</a></li>
+                        <li><a href="#">drop 1</a></li>
+                        <li><a href="#">drop 1</a></li>
+                    </ul>
+                 
+                </li>
+                <li><a href="#">Services</a></li>
+                <li class="last"><a href="#">Contact Us</a></li>	
+            </ul>
+        </nav><!-- end web nav -->
+        
+        <div id="phone-number" class="">
+        		
+                <span class="pnumb">404-555-5555</span>
+            
+        </div><!-- end phone -->
+        
+        <!-- begin mobile phone # -->
+
+        <div id="m-phone-number">
+            <a href="tel:4045555555" class="phone-header-button">404-555-555</a>
+        </div> 
+        <!-- end mobile phone # -->
+        
+        
+        <!-- mobile menu -->
+	<nav id="m-menu" class="sixteen columns">
+        	<ul id="nav">
+        		<li class="current first"><a href="#">Home</a>
+                	<ul>
+                    	<li><a href="#">drop 1</a>
+                        	<ul>
+                                <li><a href="#">drop 2</a></li>
+                                <li><a href="#">drop 2</a></li>
+                                <li><a href="#">drop 2</a></li>
+                                <li><a href="#">drop 2</a></li>
+                                <li><a href="#">drop 2</a></li>
+                            </ul>
+                        
+                        </li>
+                        <li><a href="#">drop 1</a></li>
+                        <li><a href="#">drop 1</a></li>
+                        <li><a href="#">drop 1</a></li>
+                        <li><a href="#">drop 1</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Services</a></li>
+                <li class="last"><a href="#">Contact Us</a>
+                	<ul>
+                        <li><a href="#">drop 2</a></li>
+                        <li><a href="#">drop 2</a></li>
+                        <li><a href="#">drop 2</a></li>
+                        <li><a href="#">drop 2</a></li>
+                        <li><a href="#">drop 2</a></li>
+                    </ul>
+                </li>	
+            </ul>    
+               
+	</nav>
+<!-- end mobile menu -->
+     
+     	<div id="header-image-wrapper-1" class="sixteen columns">
+   	    	<img id="siteMainDynHeaderImage1" src="gfx/header_image_1.jpg" >
+        </div> 
+     	<!-- end header image -->
+
+    </header><!-- end header container -->  
+    
+      
+</div> <!-- header wrapper end -->
+
+<!-- content area -->
+<div id="wrapper-content">
+	<div class="sk-container">
+    	
+        <section id="content-area" class="sixteen columns">
+        	<div class="twelve columns alpha">
+                <div class="callout four columns alpha">
+                    <img src="gfx/ctaImg1.jpg" class="flL" />
+                    <h3>Lorem ipsum dolor sit</h3>
+                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
+                    <a href="#">Click Here for More Information</a>
+                </div>
+                <div class="callout four columns">
+                    <img src="gfx/ctaImg2.jpg" class="flL" />
+                    <h3>Lorem ipsum dolor sit</h3>
+                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
+                    <a href="#">Click Here for More Information</a>
+                </div>
+                <div class="callout four columns omega">
+                    <img src="gfx/ctaImg3.jpg" class="flL" />
+                    <h3>Lorem ipsum dolor sit</h3>
+                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
+                    <a href="#">Click Here for More Information</a>
+                </div>
+                <div class="twelve columns alpha omega homeContent">
+                    <img src="gfx/hr-12col.png" class="hr" />
+                    <h1>Home</h1>
+                    <p><img src="gfx/homeImg.jpg" class="flL" /> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultricies justo a dolor vulputate sagittis. Quisque in felis risus, at condimentum tellus. Curabitur quis orci ac ipsum lobortis tincidunt. Sed elit, pulvinar non egestas et, elementum at leo. Sed augue orci, lobortis eu accumsan pellentesque, porta quis. Aliquam dignissim ultricies nibh at pellentesque. Donec commodo sollicitudin auctor. Aliquam egestas sapien id justo vulputate lacinia blandit arcu lacinia. Duis facilisis condimentum lectus dignissim blandit. Nam ut ligula leo, sit amet posuere odio. Nulla auctor sollicitudin magna, quis sagittis metus fermentum vitae. Cras at ligula viverra ipsum iaculis adipiscing. Donec est nisi, fringilla blandit scelerisque quis, porta at sapien. Etiam cursus scelerisque elit, id ullamcorper elit egestas id.</p>
+                    <p>Donec eget lectus libero, ut imperdiet tortor. Donec ut lorem vitae tellus sodales facilisis. Nulla facilisi. Maecenas dictum volutpat blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar dictum enim, eu pellentesque orci gravida at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sagittis est ac ipsum interdum feugiat. Nullam eu enim nec risus faucibus tincidunt. Curabitur libero lorem, auctor non varius a, molestie a elit. Mauris sapien urna, ullamcorper quis sollicitudin et, commodo eu ipsum.</p>
+                </div> 
+            </div>
+            <div id="sidebar" class="four columns omega">
+            	<div class="widget-wrapper">
+                    <div class="widget-title">
+                        <h3>Contact Us Now</h3>
+                    </div>
+                    <div class="widget-body">
+                    	<span>Fields marked with * are mandatory</span>
+                        <form>
+                        <label>*Name:</label>
+                        <input type="text" />
+                        <label>*Phone:</label>
+                        <input type="text" />
+                        <label>*Email:</label>
+                        <input type="text" />
+                        <label>Questions/Comments:</label>
+                        <textarea></textarea>
+                        <input type="submit" value="Submit" class="buttons"/>
+                        <input type="submit" value="Clear Form" class="buttons" />
+                        </form>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="contactInfo">
+                    	<h3>Contact Information</h3>
+                        <ul>
+                        	<li>123 Peachtree Street</li>
+                            <li>Altanta, GA 30308</li>
+                            <li>Phone Number: 555-555-5555</li>
+                            <li>Business Hours: 8AM - 5PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        
+        <section style="display: none;">	
+        	<h1>h1</h1>
+            <br/>
+			<h2>h2</h2>
+            <br/>
+			<h3>h3</h3>
+            <br/>
+			<h4>h4</h4>
+            <br/>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p> 
+            <br/>
+            <blockquote>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</blockquote>
+            
+            <br/>
+            <a href="#">Hyperlink</a>
+            <br/>
+            <hr/>
+            
+            <ul>
+            	<li>Listed Item </li>
+                <li>Listed Item </li>
+                <li>Listed Item </li>
+                <li>Listed Item </li>
+                <li>Listed Item </li>
+                <li>Listed Item </li>
+            </ul>
+            <br/>
+            <ol>
+              <li>Numbered list</li>
+              <li>Numbered list</li>
+              <li>Numbered list</li>
+              <li>Numbered list</li>
+              <li>Numbered list</li>
+            </ol>
+        </section> <!-- end content area -->
+        
+    </div><!-- end container -->
+</div>
+<!-- content area end -->
+
+
+<div id="wrapper-footer">
+	<footer class="sk-container">
+    
+        <nav class="twelve columns">
+            <ul id="mirror-menu-module">
+                <li class="first"><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li class="last"><a href="#">Contact Us</a></li>	
+            </ul>
+        </nav>  <!-- end mirrior menu module -->
+        
+     	 <div id="footer-area" class="four columns">
+  			 {FOOTER_DATA}
+		</div>   
+        
+    </footer>    
+</div>
+<!-- footer end -->
+
+<div id="wrapper-copyright">
+    	<div class="sk-container">
+        <script src='http://www.realpages.com/sites/web2dot0/copyright.js' type='text/javascript'></script>
+        </div>
+    </div> <!-- wrapper copyright end -->
+    
+</div> <!-- end skin bg -->
+
+
+
+<!-- END HTML COPY/PASTE -->
+</body>
+</html>
